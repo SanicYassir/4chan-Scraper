@@ -64,4 +64,15 @@ const Scrape4chanImages = (t, p) => {
   })();
 };
 
+const createDir = () => {
+  if (!fs.existsSync(`./images`)) {
+    fs.mkdirSync(`./images/`);
+  }
+
+  if (!fs.existsSync(".images/threads")) {
+    fs.mkdirSync("images/threads");
+  }
+};
+
+createDir();
 Scrape4chanImages(args.thread, args.page);

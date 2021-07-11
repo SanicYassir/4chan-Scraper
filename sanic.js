@@ -17,7 +17,7 @@ const Scrape4chanImages = (t, p) => {
   const numPage = p;
 
   const url = `https://boards.4channel.org/${thread}/${
-    numPage == 1 ? "" : numPage
+    numPage == 1 ? "" :numPage
   }`;
   console.log({ url });
   let srcs;
@@ -43,12 +43,12 @@ const Scrape4chanImages = (t, p) => {
     if (!fs.existsSync(`./images/threads/${thread}`)) {
       fs.mkdirSync(`./images/threads/${thread}`);
     }
-    if (!fs.existsSync(`./images/threads/${thread}/${numPage}`))
-      fs.mkdirSync(`./images/threads/${thread}/${numPage}`);
+    if (!fs.existsSync(`./images/threads/${thread}/${numPage ==="" ? 1 :numPage}`))
+      fs.mkdirSync(`./images/threads/${thread}/${numPage ==="" ? 1 :numPage}`);
 
     let options = {
       url: "",
-      dest: `./images/threads/${thread}/${numPage}`,
+      dest: `./images/threads/${thread}/${numPage ==="" ? 1 :numPage}`,
     };
     srcs.forEach((url) => {
       options.url = url;

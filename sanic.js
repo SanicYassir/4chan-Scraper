@@ -69,8 +69,8 @@ const createDir = () => {
     fs.mkdirSync(`./images/`);
   }
 
-  if (!fs.existsSync(".images/threads")) {
-    fs.mkdirSync("images/threads");
+  if (!fs.existsSync("./images/threads")) {
+    fs.mkdirSync("./images/threads");
   }
 };
 

@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "image-downloader": "^4.0.2",
+    "node-image-downloader": "^1.0.7",
     "puppeteer": "^10.1.0"
   }
 }

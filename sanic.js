@@ -1,5 +1,7 @@
 const puppeteer = require("puppeteer");
-const download = require("image-downloader");
+//const download = require("image-downloader");
+const imageDownloader = require("node-image-downloader");
+
 const fs = require("fs");
 
 let args = {
@@ -17,7 +19,7 @@ const Scrape4chanImages = (t, p) => {
   const numPage = p;
 
   const url = `https://boards.4channel.org/${thread}/${
-    numPage == 1 ? "" :numPage
+    numPage == 1 ? "" : numPage
   }`;
   console.log({ url });
   let srcs;
@@ -43,12 +45,18 @@ const Scrape4chanImages = (t, p) => {
     if (!fs.existsSync(`./images/threads/${thread}`)) {
       fs.mkdirSync(`./images/threads/${thread}`);
     }
-    if (!fs.existsSync(`./images/threads/${thread}/${numPage ==="" ? 1 :numPage}`))
-      fs.mkdirSync(`./images/threads/${thread}/${numPage ==="" ? 1 :numPage}`);
+    if (
+      !fs.existsSync(
+        `./images/threads/${thread}/${numPage === "" ? 1 : numPage}`
+      )
+    )
+      fs.mkdirSync(
+        `./images/threads/${thread}/${numPage === "" ? 1 : numPage}`
+      );
 
-    let options = {
+    /* let options = {
       url: "",
-      dest: `./images/threads/${thread}/${numPage ==="" ? 1 :numPage}`,
+      dest: `./images/threads/${thread}/${numPage === "" ? 1 : numPage}`,
     };
     srcs.forEach((url) => {
       options.url = url;
@@ -60,7 +68,26 @@ const Scrape4chanImages = (t, p) => {
         .catch((err) => {
           console.error(err);
         });
-    });
+    });*/
+
+    let options = {
+      imgs: srcs.map((src) => {
+        return { uri: src };
+      }),
+      dest: `./images/threads/${thread}/${numPage === "" ? 1 : numPage}`,
+    };
+
+    console.log("Images count : " + options.imgs.length);
+    console.log(options);
+
+    imageDownloader(options)
+      .then((info) => {
+        console.log("all done", info);
+      })
+      .catch((error, response, body) => {
+        console.log("something goes bad!");
+        console.log(error);
+      });
   })();
 };
 

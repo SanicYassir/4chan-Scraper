@@ -3,6 +3,7 @@ const puppeteer = require("puppeteer");
 const imageDownloader = require("node-image-downloader");
 
 const fs = require("fs");
+const date = new Date().toLocaleDateString().split('/').join('');
 
 let args = {
   thread: process.argv[2],
@@ -47,34 +48,19 @@ const Scrape4chanImages = (t, p) => {
     }
     if (
       !fs.existsSync(
-        `./images/threads/${thread}/${numPage === "" ? 1 : numPage}`
+        `./images/threads/${thread}/${date}_page_${numPage === "" ? 1 : numPage}`
       )
     )
       fs.mkdirSync(
-        `./images/threads/${thread}/${numPage === "" ? 1 : numPage}`
+        `./images/threads/${thread}/${date}_page_${numPage === "" ? 1 : numPage}`
       );
 
-    /* let options = {
-      url: "",
-      dest: `./images/threads/${thread}/${numPage === "" ? 1 : numPage}`,
-    };
-    srcs.forEach((url) => {
-      options.url = url;
-      download
-        .image(options)
-        .then(({ filename }) => {
-          console.log("Saved to", filename);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    });*/
 
     let options = {
       imgs: srcs.map((src) => {
         return { uri: src };
       }),
-      dest: `./images/threads/${thread}/${numPage === "" ? 1 : numPage}`,
+      dest: `./images/threads/${thread}/${date}_page_${numPage === "" ? 1 : numPage}`,
     };
 
     console.log("Images count : " + options.imgs.length);

@@ -31,12 +31,12 @@ npm install puppeteer-extra puppeteer-extra-plugin-stealth axios
 node 4chan_downloader.js [mode] [thread] [page]
 ```
 
-# Modes:
+Modes:
 
 f1 - Download single page
 f10 - Download first 10 pages
 
-# Examples:
+Examples:
 
 Download first 10 pages of /wg/ thread
 

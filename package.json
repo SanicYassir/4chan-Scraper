@@ -12,6 +12,8 @@
     "axios": "^0.21.1",
     "image-downloader": "^4.0.2",
     "node-image-downloader": "^1.0.7",
-    "puppeteer": "^10.1.0"
+    "puppeteer": "^10.1.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
 }

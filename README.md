@@ -38,15 +38,13 @@ f10 - Download first 10 pages
 
 # Examples:
 
-bash
-
-# Download first 10 pages of /wg/ thread
+Download first 10 pages of /wg/ thread
 
 ```bash
 node 4chan_downloader.js f10 wg
 ```
 
-# Download page 3 of /b/ thread
+Download page 3 of /b/ thread
 
 ```bash
 node 4chan_downloader.js f1 b 3

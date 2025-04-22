@@ -138,7 +138,7 @@ const main = async () => {
   const args = process.argv.slice(2);
   if (args.length < 2 || !['f1', 'f10'].includes(args[0])) {
     console.log(`
-Usage: node 4chan_downloader.js [mode] [thread] [page]
+Usage: node sanic.js [mode] [thread] [page]
 Modes:
   f1    - Download single page
   f10   - Download first 10 pages

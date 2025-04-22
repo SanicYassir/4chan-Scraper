@@ -1,6 +1,5 @@
 # 4Chan Image Downloader
 
-<<<<<<< HEAD
 A Node.js script that scrapes images from 4chan threads using Puppeteer with stealth mode to avoid detection. Downloads are saved with proper referer headers and random delays to mimic human behavior.
 
 ## Features
@@ -83,8 +82,4 @@ Delays: Randomized between requests (1-3s)
 
 ## 📜 Disclaimer
 
-# This project is for educational purposes only. Respect 4chan's Terms of Service. Use at your own risk.
-
-Use : node sanic.js [mode] [thread] [page]
-
-> > > > > > > abbc485cde267c4eb6f023273221076893bd809d
+This project is for educational purposes only. Respect 4chan's Terms of Service. Use at your own risk.
